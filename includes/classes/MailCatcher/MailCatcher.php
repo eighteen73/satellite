@@ -68,6 +68,7 @@ class MailCatcher extends Singleton {
 	 * @var array
 	 */
 	private $plugins = [
+		'simple-smtp/wp-simple-smtp.php',
 		'wp-mail-smtp/wp_mail_smtp.php',
 		'easy-wp-smtp/easy-wp-smtp.php',
 		'mailgun/mailgun.php',

@@ -16,9 +16,10 @@ use Roots\WPConfig\Exceptions\UndefinedConfigKeyException;
  * This class is built upon BE Media from Production so all due credit to those authors.
  * http://www.github.com/billerickson/be-media-from-production
  */
-class RemoteFiles extends Singleton {
+class RemoteFiles {
 
 	use Environment;
+	use Singleton;
 
 	/**
 	 * Production URL

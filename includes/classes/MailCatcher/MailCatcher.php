@@ -16,9 +16,10 @@ use PHPMailer\PHPMailer\PHPMailer;
  * Disables all emails from being sent and instead
  * routes to a local mailcatcher instance if available.
  */
-class MailCatcher extends Singleton {
+class MailCatcher {
 
 	use Environment;
+	use Singleton;
 
 	/**
 	 * SMTP hostname or IP

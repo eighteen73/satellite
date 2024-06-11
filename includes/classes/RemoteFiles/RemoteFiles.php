@@ -54,6 +54,7 @@ class RemoteFiles {
 
 		// Update Image URLs
 		add_filter( 'wp_get_attachment_image_src', [ $this, 'image_src' ] );
+		add_filter( 'wp_calculate_image_srcset', [ $this, 'image_srcset' ], 10, 5 );
 		add_filter( 'wp_get_attachment_image_attributes', [ $this, 'image_attr' ], 99 );
 		add_filter( 'wp_prepare_attachment_for_js', [ $this, 'image_js' ], 10, 3 );
 		add_filter( 'the_content', [ $this, 'image_content' ] );
@@ -107,6 +108,22 @@ class RemoteFiles {
 		}
 
 		return $attr;
+	}
+
+	/**
+	 * Modify Image Srcset
+	 *
+	 * @param array $attr The image srcset
+	 *
+	 * @return array
+	 */
+	public function image_srcset( $sources ) {
+
+		foreach ( $sources as $source => $source_data ) {
+			$sources[$source]['url'] = $this->update_image_url( $source_data['url'] );
+		}
+
+		return $sources;
 	}
 
 	/**

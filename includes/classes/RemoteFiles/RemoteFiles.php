@@ -113,14 +113,14 @@ class RemoteFiles {
 	/**
 	 * Modify Image Srcset
 	 *
-	 * @param array $attr The image srcset
+	 * @param array $size_array An array of width and height values.
 	 *
 	 * @return array
 	 */
-	public function image_srcset( $sources ) {
+	public function image_srcset( $size_array ): array {
 
-		foreach ( $sources as $source => $source_data ) {
-			$sources[$source]['url'] = $this->update_image_url( $source_data['url'] );
+		foreach ( $size_array as $source => $source_data ) {
+			$sources[ $source ]['url'] = $this->update_image_url( $source_data['url'] );
 		}
 
 		return $sources;

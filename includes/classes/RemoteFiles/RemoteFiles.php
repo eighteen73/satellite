@@ -54,7 +54,7 @@ class RemoteFiles {
 
 		// Update Image URLs
 		add_filter( 'wp_get_attachment_image_src', [ $this, 'image_src' ] );
-		add_filter( 'wp_calculate_image_srcset', [ $this, 'image_srcset' ], 10, 5 );
+		add_filter( 'wp_calculate_image_srcset', [ $this, 'image_srcset' ] );
 		add_filter( 'wp_get_attachment_image_attributes', [ $this, 'image_attr' ], 99 );
 		add_filter( 'wp_prepare_attachment_for_js', [ $this, 'image_js' ], 10, 3 );
 		add_filter( 'the_content', [ $this, 'image_content' ] );
@@ -113,13 +113,13 @@ class RemoteFiles {
 	/**
 	 * Modify Image Srcset
 	 *
-	 * @param array $size_array An array of width and height values.
+	 * @param array $sources One or more arrays of source data to include in the ‘srcset’.
 	 *
 	 * @return array
 	 */
-	public function image_srcset( $size_array ): array {
+	public function image_srcset( $sources ): array {
 
-		foreach ( $size_array as $source => $source_data ) {
+		foreach ( $sources as $source => $source_data ) {
 			$sources[ $source ]['url'] = $this->update_image_url( $source_data['url'] );
 		}
 

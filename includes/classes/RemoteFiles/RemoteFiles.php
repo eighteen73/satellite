@@ -68,7 +68,7 @@ class RemoteFiles {
 	 * @return bool
 	 */
 	private function is_safe_environment(): bool {
-		return in_array( $this->environment(), [ 'development', 'local' ], true );
+		return in_array( $this->environment(), [ 'development', 'local', 'staging' ], true );
 	}
 
 	/**

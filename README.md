@@ -1,3 +1,8 @@
+> [!WARNING]  
+> Satellite has now been retired with the release of [Orbit 2.0](https://github.com/eighteen73/orbit/releases/tag/v2.0.0), which encompasses all its features we use.
+> If your project uses both Orbit and Satellite, please update to Orbit 2.0 before removing Satellite.
+> Also notice you'll need to configure your email settings to continue to catch emails locally. We use [Simple SMTP](https://en-gb.wordpress.org/plugins/simple-smtp/) along with environment variables.
+
 # Satellite
 
 Satellite applies a collection of developer tools for WordPress projects. It is only designed to be used in development environments and should not be installed in live environments at all.
